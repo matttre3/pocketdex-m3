@@ -32,7 +32,7 @@ function App() {
   useEffect(() => { console.log(pokemonType) }, [pokemonType])
 
   const types = ['normal', 'fighting', 'flying', 'poison', 'ground', 'rock', 'bug', 'ghost', 'steel', 'fire', 'water', 'grass', 'electric', 'psychic', 'ice', 'dragon', 'dark']
-  
+
   function handleChange(e) {
     setSearchBar(e.target.value)
   }
@@ -72,27 +72,20 @@ function App() {
 
       <div className="container">
         {
-          pokeData.map((pokemon) => {
+          pokeData.filter((pokemon) => {
             const types = pokemon.types.map(item => item.type.name)
-
-            //[fuoco,acqua,ghiaccio]
-            //[fuoco,erba] types
-            //[true,false]
-
             const isPresent = types.map((type) => pokemonType.includes(type))
-            console.log(pokemonType)
-            console.log(types)
-            console.log(pokemon.types)
-          
             const hasTrue = isPresent.some(element => element === true)
+            return (pokemonType.length === 0 || hasTrue) 
+          }).map((pokemon) => {
 
             return (
 
-              (pokemonType.length === 0 || hasTrue) && <PokemonCard
+               <PokemonCard
                 key={pokemon.id}
                 pokeData={pokemon}
               />
-              
+
 
             )
 
