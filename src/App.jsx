@@ -32,6 +32,7 @@ function App() {
   useEffect(() => { console.log(pokemonType) }, [pokemonType])
 
   const types = ['normal', 'fighting', 'flying', 'poison', 'ground', 'rock', 'bug', 'ghost', 'steel', 'fire', 'water', 'grass', 'electric', 'psychic', 'ice', 'dragon', 'dark']
+  
   function handleChange(e) {
     setSearchBar(e.target.value)
   }
@@ -42,12 +43,11 @@ function App() {
       <input onChange={handleChange} type="text" name="" id="" />
 
       {
-        searchBar.length > 0 && pokeList.filter(item => item.name.toLowerCase().startsWith(searchBar.toLowerCase())).map((item) => {
+        searchBar.length > 0 && pokeData.filter(item => item.name.toLowerCase().startsWith(searchBar.toLowerCase())).map((item) => {
           return (
             <div className='searchedItem' key={item.url}>
               <a href={`#${item.name}`}>
                 <p>{item.name}</p>
-                <p>{item.id}</p>
               </a>
             </div>
           )
