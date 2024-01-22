@@ -31,7 +31,7 @@ function App() {
   const [pokemonType, setPokemonType] = useState([])
   useEffect(() => { console.log(pokemonType) }, [pokemonType])
 
-  const types = ['normal', 'fighting', 'flying', 'poison', 'ground', 'rock', 'bug', 'ghost', 'steel', 'fire', 'water', 'grass', 'electric', 'psychic', 'ice', 'dragon', 'dark']
+  const types = ['normal','fairy', 'fighting', 'flying', 'poison', 'ground', 'rock', 'bug', 'ghost', 'steel', 'fire', 'water', 'grass', 'electric', 'psychic', 'ice', 'dragon', 'dark']
 
   function handleChange(e) {
     setSearchBar(e.target.value)
@@ -40,7 +40,8 @@ function App() {
 
   return (
     <>
-      <input onChange={handleChange} type="text" name="" id="" />
+    <img className="headerImage" src="./src/assets/pokeball.png" alt="" />
+    <input onChange={handleChange} type="text" name="" id="" />
 
       {
         searchBar.length > 0 && pokeData.filter(item => item.name.toLowerCase().startsWith(searchBar.toLowerCase())).map((item) => {

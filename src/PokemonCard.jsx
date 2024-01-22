@@ -7,7 +7,6 @@ const PokemonCard = ({pokeData}) => {
 
   return (
 
-
     <div className='pokemonCard' id={pokeData.name}>
       <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokeData.id}.png`} />
       <p>{pokeData.name.charAt(0).toUpperCase()+pokeData.name.slice(1)}</p>
