@@ -1,10 +1,15 @@
 import React from 'react'
+import { useParams } from 'react-router-dom'
 
-const PokemonDetails = ({pokemon}) => {
+const PokemonDetails = ({}) => {
+  
+  const {name} = useParams();
+  
+  
+
   return (
     <div>
-      <p>{pokemon.name} Il routing funziona !</p>
-      <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`} />
+      {name}
     </div>
   )
 }

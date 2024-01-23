@@ -27,22 +27,32 @@ const App = () => {
   }, [])
 
   const [pokeData, setPokeData] = useState([])
-  
+
+
 
   return (
     <div>
-      
-      <Routes>
-        <Route path="/" element={<Home 
-        pokeData={pokeData}/>} />
 
-        {pokeData.map((pokemon) => (
+      <Routes>
+       
+
+        <Route path="/" element={<Home
+          pokeData={pokeData} />} />
+
+           <Route
+          path={`/:name`} element={<PokemonDetails
+          />}
+        />
+
+        {/*pokeData.map((pokemon) => (
           <Route
             key={pokemon.name}
             path={`/${pokemon.name}`}
             element={<PokemonDetails pokemon={pokemon} />}
           />
-        ))}
+        ))*/}
+
+
       </Routes>
 
     </div>
