@@ -2,11 +2,13 @@ import React from 'react'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import './PokemonCard.css'
+import { Link } from 'react-router-dom'
+
 
 const PokemonCard = ({pokeData}) => {
 
   return (
-
+    <Link to={`/${pokeData.name}`}>
     <div className='pokemonCard' id={pokeData.name}>
       <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokeData.id}.png`} />
       <p>{pokeData.name.charAt(0).toUpperCase()+pokeData.name.slice(1)}</p>
@@ -19,8 +21,7 @@ const PokemonCard = ({pokeData}) => {
         )
       }
     </div>
-
-    
+    </Link>
   )
 }
 
