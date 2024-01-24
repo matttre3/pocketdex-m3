@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
 const PokemonCard = ({pokeData}) => {
 
   return (
-    <Link to={`/${pokeData.name}`}>
+    <Link to={`/${pokeData.id}`}>
     <div className='pokemonCard' id={pokeData.name}>
       <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokeData.id}.png`} />
       <p>{pokeData.name.charAt(0).toUpperCase()+pokeData.name.slice(1)}</p>

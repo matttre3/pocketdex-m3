@@ -11,6 +11,8 @@ import PokemonDetails from './PokemonDetails'
 
 const App = () => {
 
+
+
   useEffect(() => {
     async function init() {
       try {
@@ -23,10 +25,12 @@ const App = () => {
         console.error(e)
       }
     }
+
     init()
   }, [])
 
   const [pokeData, setPokeData] = useState([])
+  const [typeInfo, setTypeInfo] = useState([])
 
 
 
@@ -40,17 +44,9 @@ const App = () => {
           pokeData={pokeData} />} />
 
            <Route
-          path={`/:name`} element={<PokemonDetails
+          path={`/:id`} element={<PokemonDetails
           />}
         />
-
-        {/*pokeData.map((pokemon) => (
-          <Route
-            key={pokemon.name}
-            path={`/${pokemon.name}`}
-            element={<PokemonDetails pokemon={pokemon} />}
-          />
-        ))*/}
 
 
       </Routes>
