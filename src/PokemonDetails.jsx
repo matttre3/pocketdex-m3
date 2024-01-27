@@ -14,7 +14,7 @@ const PokemonDetails = ({ }) => {
     try {
       const data = await fetch(`${typeurl}`)
       const typeinfo = await data.json()
-      setTypeInfo((prevTypeInfo) => [...prevTypeInfo, typeinfo]);
+      return typeinfo
     } catch (e) {
       console.error(e)
     }
@@ -27,7 +27,11 @@ const PokemonDetails = ({ }) => {
         setPokemonInfo(pokemon);
   
         const typeInfoPromises = pokemon.types.map((tipo) => getTypeInfo(tipo.type.url));
-        await Promise.all(typeInfoPromises);
+
+        const typeInfoResults = await Promise.all(typeInfoPromises);
+        
+        setTypeInfo(typeInfoResults);
+        
   
       } catch (e) {
         console.error(e);
@@ -43,10 +47,25 @@ function handleClick(){
 
   return (
     <div>
+       {pokemonInfo.sprites &&
+      <>
       <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonInfo.id}.png`} />
+      
+      <img src={pokemonInfo.sprites.front_shiny} alt="Front Shiny"></img> {/* Chiedere a Lore, perchè qua mi da problemi se non faccio l'&& e in quello sopra funziona?? */}
+
       {pokemonInfo.name}
       {pokemonInfo.id}
-      <button onClick={handleClick}></button>
+
+      {pokemonInfo.stats.map((stat)=>{
+        return(
+          <>
+          <p>{stat.base_stat}</p>
+          <p>{stat.stat.name}</p>
+          </>
+        )
+      })}
+      </>
+  }
     </div>
   )
 }
