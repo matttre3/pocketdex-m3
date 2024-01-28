@@ -6,7 +6,7 @@ import { useState } from 'react';
 const PokemonDetails = ({ }) => {
 
   const { id } = useParams();
-  const [pokemonInfo, setPokemonInfo] = useState([])
+  const [pokemonInfo, setPokemonInfo] = useState()
   const [typeInfo, setTypeInfo] = useState([])
 
 
@@ -19,6 +19,7 @@ const PokemonDetails = ({ }) => {
       console.error(e)
     }
   }
+  
   useEffect(() => {
     async function init() {
       try {
@@ -41,20 +42,17 @@ const PokemonDetails = ({ }) => {
     init();
   }, [id]);
 
-function handleClick(){
-  console.log(typeInfo)
-}
+
 
   return (
     <div>
-       {pokemonInfo.sprites &&
+       {pokemonInfo &&
       <>
       <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonInfo.id}.png`} />
       
-      <img src={pokemonInfo.sprites.front_shiny} alt="Front Shiny"></img> {/* Chiedere a Lore, perchè qua mi da problemi se non faccio l'&& e in quello sopra funziona?? */}
+      <img src={pokemonInfo.sprites.front_shiny} alt="Front Shiny"></img> {/* Chiedere a Lore/Lino, perchè qua mi da problemi se non faccio l'&& e in quello sopra funziona?? */}
 
-      {pokemonInfo.name}
-      {pokemonInfo.id}
+      <p>{pokemonInfo.name.charAt(0).toUpperCase()+pokemonInfo.name.slice(1)} #{pokemonInfo.id}</p>
 
       {pokemonInfo.stats.map((stat)=>{
         return(
@@ -64,6 +62,87 @@ function handleClick(){
           </>
         )
       })}
+
+      <h2 className='text-xl font-bold text-red-500'>Takes double damage from</h2>
+      {typeInfo.map((type)=>{
+        return(
+          <>
+          {type.damage_relations.double_damage_from.map((doubleDamageType)=>{
+            return (
+              <img key={doubleDamageType.name} className='typeImage'src={`./src/assets/${doubleDamageType.name}.png`} alt=""></img>
+            )
+          })}
+          </>
+        )
+      })}
+
+      <h2>Makes double damage to</h2>
+      {typeInfo.map((type)=>{
+        return(
+          <>
+          {type.damage_relations.double_damage_to.map((doubleDamageType)=>{
+            return (
+              <img key={doubleDamageType.name} className='typeImage'src={`./src/assets/${doubleDamageType.name}.png`} alt=""></img>
+            )
+          })}
+          </>
+        )
+      })}
+
+      <h2>Takes half damage from</h2>
+      {typeInfo.map((type)=>{
+        return(
+          <>
+          {type.damage_relations.half_damage_from.map((doubleDamageType)=>{
+            return (
+              <img key={doubleDamageType.name} className='typeImage'src={`./src/assets/${doubleDamageType.name}.png`} alt=""></img>
+            )
+          })}
+          </>
+        )
+      })}
+
+      <h2>Makes half damage to</h2>
+      {typeInfo.map((type)=>{
+        return(
+          <>
+          {type.damage_relations.half_damage_to.map((doubleDamageType)=>{
+            return (
+              <img key={doubleDamageType.name} className='typeImage'src={`./src/assets/${doubleDamageType.name}.png`} alt=""></img>
+            )
+          })}
+          </>
+        )
+      })}
+
+      <h2>Takes no damage from</h2>
+      {typeInfo.map((type)=>{
+        return(
+          <>
+          {type.damage_relations.no_damage_from.map((doubleDamageType)=>{
+            return (
+              <img key={doubleDamageType.name} className='typeImage'src={`./src/assets/${doubleDamageType.name}.png`} alt=""></img>
+            )
+          })}
+          </>
+        )
+      })}
+
+      <h2>Makes no damage to</h2>
+      {typeInfo.map((type)=>{
+        return(
+          <>
+          {type.damage_relations.no_damage_to.map((doubleDamageType)=>{
+            return (
+              <img key={doubleDamageType.name} className='typeImage'src={`./src/assets/${doubleDamageType.name}.png`} alt=""></img>
+            )
+          })}
+          </>
+        )
+      })}
+
+      
+
       </>
   }
     </div>

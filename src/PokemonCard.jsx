@@ -1,7 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
 import { useEffect } from 'react'
-import './PokemonCard.css'
 import { Link } from 'react-router-dom'
 
 
@@ -9,9 +8,10 @@ const PokemonCard = ({pokeData}) => {
 
   return (
     <Link to={`/${pokeData.id}`}>
-    <div className='pokemonCard' id={pokeData.name}>
-      <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokeData.id}.png`} />
+    <div className=' hover:animate-pulse p-10 w-40 h-40 flex items-center justify-center flex-col shadow-xl' id={pokeData.name}>
+      <img  className="-mt-7" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokeData.id}.png`} />
       <p>{pokeData.name.charAt(0).toUpperCase()+pokeData.name.slice(1)}</p>
+      <div className='flex gap-1 items-center justify-center'>
       {
         pokeData.types.map((item) => {
           return(
@@ -20,6 +20,7 @@ const PokemonCard = ({pokeData}) => {
         }
         )
       }
+      </div>
     </div>
     </Link>
   )

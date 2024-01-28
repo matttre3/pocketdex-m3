@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
-import './TypeButton.css'
+
 
 const TypeButton = ({type,pokemonType,setPokemonType}) => {
  
@@ -26,7 +26,7 @@ const [isPresentClass,setIsPresentClass] = useState('')
  
     return (
 
-    <img onClick={setType} className={`typeImage ${isPresentClass && 'type-present'}`} src={`./src/assets/${type}.png`} alt=""></img>
+    <img onClick={setType} className={` ${isPresentClass && ''}`} src={`./src/assets/${type}.png`} alt=""></img>
     
   )
 }

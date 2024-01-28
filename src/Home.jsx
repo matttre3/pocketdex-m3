@@ -17,13 +17,13 @@ const Home = ({pokeData}) => {
   }
   
   return (
-    <div>
-      <img className="headerImage" src="./src/assets/pokeball.png" alt="" />
-      <input onChange={handleChange} type="text" name="" id="" />
+    <div className='flex flex-col items-center justify-center' >
+      <img className='w-16 h-16' src="./src/assets/pokeball.png" alt="" />
+      <input className='mt-10 border' onChange={handleChange} type="text" name="" id="" />
 
     
 
-      <div className="filterButtons">
+      <div className='flex flex-wrap mt-10 gap-3'>
         {types.map((item) => {
           return (
             <TypeButton
@@ -38,7 +38,7 @@ const Home = ({pokeData}) => {
       </div>
 
 
-      <div className="container">
+      <div className='flex flex-wrap items-center justify-center w-4/5 mx-auto mt-10 gap-14'>
         {
           pokeData.filter((pokemon) => {
             const types = pokemon.types.map(item => item.type.name)
