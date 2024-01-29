@@ -43,7 +43,7 @@ const Home = ({ pokeData }) => {
           )}
         </div>
 
-        <div className='flex flex-wrap mt-6 sm:mb-4  gap-3  items-center justify-center'>
+        <div className='flex flex-wrap mt-6 mb-4  gap-3  items-center justify-center'>
           {pokemonType.map(item => {
             return (
               <>

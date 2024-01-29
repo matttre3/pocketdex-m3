@@ -26,7 +26,6 @@ const typeColorObject = {
 const PokemonCard = ({pokeData}) => {
 
   const typeColor = typeColorObject[pokeData.types[0].type.name]
-  console.log(`before:bg-${typeColor}-500`)
   return (
     <Link to={`/${pokeData.id}`}>
     <div className='hover:animate-pulse p-10 w-[200px] h-[200px] flex items-center justify-center flex-col shadow-xl relative' id={pokeData.name}>
