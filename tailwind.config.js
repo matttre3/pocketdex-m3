@@ -29,8 +29,13 @@ export default {
   safelist: typeColorObject.map(color => `before:bg-${color}-500`),
   
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        pixel:['Pixelify Sans']
+      }
+    },
   },
   plugins: [],
+
 }
 

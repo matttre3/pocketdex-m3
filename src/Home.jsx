@@ -3,38 +3,63 @@ import PokemonCard from './PokemonCard'
 import TypeButton from './TypeButton'
 import { useState } from 'react'
 import { useEffect } from 'react'
+const types = ['normal', 'fairy', 'fighting', 'flying', 'poison', 'ground', 'rock', 'bug', 'ghost', 'steel', 'fire', 'water', 'grass', 'electric', 'psychic', 'ice', 'dragon', 'dark']
 
-const Home = ({pokeData}) => {
-  
+const Home = ({ pokeData }) => {
+
   const [searchBar, setSearchBar] = useState('')
   const [pokemonType, setPokemonType] = useState([])
   useEffect(() => { console.log(pokemonType) }, [pokemonType])
 
-  const types = ['normal', 'fairy', 'fighting', 'flying', 'poison', 'ground', 'rock', 'bug', 'ghost', 'steel', 'fire', 'water', 'grass', 'electric', 'psychic', 'ice', 'dragon', 'dark']
 
   function handleChange(e) {
     setSearchBar(e.target.value)
   }
-  
+
   return (
+
     <div className='flex flex-col items-center justify-center' >
-      <img className='w-16 h-16' src="./src/assets/pokeball.png" alt="" />
-      <input className='border-2 border-gray-300 rounded-md mt-4 pl-2 pr-8 focus:outline-none focus:border-gray-500' onChange={handleChange} type="text" name="" id="" />
+      <header className='bg-slate-700 w-full flex flex-col'>
+        <div className=' mt-4 flex flex-row items-center justify-center bg-slate-700'>
+          <img className=' w-16 h-16' src="./src/assets/pokeball.png" alt="" />
+          <p className='ml-4 font-pixel text-[40px] text-white'>Pocketdex</p>
+        </div>
+        <input className='w-[300px] mx-auto border-2 border-gray-300 rounded-md mt-4 pl-2 pr-8 focus:outline-none focus:border-gray-500' onChange={handleChange} type="text" name="" id="" />
+        <div className='flex flex-wrap mt-6 gap-3  items-center justify-center'>
+          {types.map((item) => {
 
-      <div className='flex flex-wrap mt-4 gap-3 h-10 w-100 items-center justify-center'>
-        {types.map((item) => {
-          return (
-            <TypeButton
-              key={item}
-              type={item}
-              setPokemonType={setPokemonType}
-              pokemonType={pokemonType}
-            />
-          )
-        }
-        )}
-      </div>
+            const includes = pokemonType.includes(item)
 
+            return (
+              !includes &&
+              <TypeButton
+                key={item}
+                type={item}
+                setPokemonType={setPokemonType}
+                pokemonType={pokemonType}
+              />
+            )
+          }
+          )}
+        </div>
+
+        <div className='flex flex-wrap mt-6 sm:mb-4  gap-3  items-center justify-center'>
+          {pokemonType.map(item => {
+            return (
+              <>
+                <TypeButton
+                  key={item}
+                  type={item}
+                  setPokemonType={setPokemonType}
+                  pokemonType={pokemonType}
+                />
+              </>
+
+            )
+          })
+          }
+        </div>
+      </header>
 
       <div className='flex flex-wrap items-center justify-center max-w-[1000px] mx-auto mt-10 mb-10 gap-14'>
         {
@@ -43,7 +68,7 @@ const Home = ({pokeData}) => {
             const isPresent = types.map((type) => pokemonType.includes(type))
             const hasTrue = isPresent.some(element => element === true)
             return (pokemonType.length === 0 || hasTrue)
-          }).filter((pokemon)=>{ return (pokemon.name.toLowerCase().startsWith(searchBar.toLowerCase()))}).map((pokemon) => {
+          }).filter((pokemon) => { return (pokemon.name.toLowerCase().startsWith(searchBar.toLowerCase())) }).map((pokemon) => {
 
             return (
               <>
