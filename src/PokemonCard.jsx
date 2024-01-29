@@ -30,9 +30,9 @@ const PokemonCard = ({pokeData}) => {
     <Link to={`/${pokeData.id}`}>
     <div className='hover:animate-pulse p-10 w-[200px] h-[200px] flex items-center justify-center flex-col shadow-xl relative' id={pokeData.name}>
     <div className={`z-0 before:absolute before:top-0 before:-left-0 before:-right-0 before:h-16 before:rounded-b-full before:w-full before:bg-${typeColor}-500`}></div>
-      <img  className="-mt-7 z-10" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokeData.id}.png`} />
+      <img  className="z-10 -mt-7" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokeData.id}.png`} />
       <p className='font-pixel'>{pokeData.name.charAt(0).toUpperCase()+pokeData.name.slice(1)}</p>
-      <div className='flex gap-1 items-center justify-center'>
+      <div className='flex items-center justify-center gap-1'>
       {
         pokeData.types.map((item) => {
           return(
