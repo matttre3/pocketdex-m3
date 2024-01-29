@@ -25,9 +25,10 @@ const [isPresentClass,setIsPresentClass] = useState('')
     }
  
     return (
-
-    <img onClick={setType} className={` ${isPresentClass && ''}`} src={`./src/assets/${type}.png`} alt=""></img>
-    
+    <div>
+    <span className='before:'></span>
+    <img onClick={setType} className={` ${isPresentClass && 'border-4 border-solid border-indigo-500'}`} src={`./src/assets/${type}.png`} alt=""></img>
+    </div>
   )
 }
 
