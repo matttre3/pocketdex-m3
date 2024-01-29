@@ -76,14 +76,14 @@ const statsMap = {
                 </div>
                 <p className='font-pixel text-3xl mb-4'>{pokemonInfo.name.charAt(0).toUpperCase() + pokemonInfo.name.slice(1)} #{pokemonInfo.id}</p>
 
-                <div className='flex items-end justify-center flex-wrap mt-5 mb-10'>
+                <div className='flex items-start gap-8 justify-center flex-wrap mt-5 mb-10'>
                   {pokemonInfo.stats.map((stat) => {
                     return (
-                      <div className='flex flex-col flex-wrap items-center justify-center w-[140px]'>
-                        {Array.from({length: 10-stat.base_stat/10}).map(()=> ( 
+                      <div className='flex flex-col flex-wrap items-center justify-center w-[80px]'>
+                        {Array.from({length: 10-Math.floor(stat.base_stat/10)}).map(()=> ( 
                           <span className={`border border-slate-400 w-10 h-2 mb-1`}></span>
                         ))}
-                        {Array.from({length: stat.base_stat/10}).map(()=> ( 
+                        {Array.from({length: Math.floor(stat.base_stat/10)}).map(()=> ( 
                           <span className={`bg-${statsMap[stat.stat.name]}-400 w-10 h-2 mb-1 border border-slate-400`}></span>
                         ))}
                         
