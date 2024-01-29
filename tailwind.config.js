@@ -26,8 +26,9 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
-  safelist: typeColorObject.map(color => `before:bg-${color}-500`),
-  safelist: typeColorObject.map(color => `bg-${color}-400`),
+  safelist: typeColorObject.flatMap(color => [`before:bg-${color}-500`,
+  `bg-${color}-400`]),
+
   
   theme: {
     extend: {

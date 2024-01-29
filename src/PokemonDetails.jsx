@@ -9,7 +9,11 @@ const PokemonDetails = ({ }) => {
   const { id } = useParams();
   const [pokemonInfo, setPokemonInfo] = useState()
   const [typeInfo, setTypeInfo] = useState([])
-
+  const [isFlipped, setFlip] = useState(false)
+  
+  function flipCard() {
+    setFlip(oldFlip => !oldFlip)
+  }
 
   async function getTypeInfo(typeurl) {
     try {
@@ -52,6 +56,16 @@ const statsMap = {
   "speed":"amber"
 }
 
+const statNames=
+[
+  "HP",
+  "Attack",
+  "Defense",
+  "Special Attack",
+  "Special Defense",
+  "Speed"
+]
+
   return (
     <>
       <Link to={`/`}>
@@ -69,26 +83,35 @@ const statsMap = {
           {pokemonInfo &&
             <>
 
-              <div className='flex flex-wrap flex-col justify-center items-center'>
-                <div className='flex'>
-                  <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonInfo.id}.png`} />
-                  <img src={pokemonInfo.sprites.front_shiny} alt="Front Shiny"></img>
+              <div className='relative flex flex-wrap flex-col justify-center items-center'>
+                <div className='flex '>
+                  <div onClick={flipCard} className="card-container">
+                    <div className={`card ${isFlipped ? 'card-flip' : ''}`}>
+                      <div className="card-face front">
+                        <img class="w-full h-full object-cover" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonInfo.id}.png`} />
+                      </div>
+                      <div className="card-face back">
+                        <img class="w-full h-full object-cover" src={pokemonInfo.sprites.front_shiny} alt="Front Shiny"></img>
+                      </div>
+                    </div>
+                  </div>
                 </div>
+                <p className='font-pixel'>Click for shiny</p>
                 <p className='font-pixel text-3xl mb-4'>{pokemonInfo.name.charAt(0).toUpperCase() + pokemonInfo.name.slice(1)} #{pokemonInfo.id}</p>
 
                 <div className='flex items-start gap-8 justify-center flex-wrap mt-5 mb-10'>
-                  {pokemonInfo.stats.map((stat) => {
+                  {pokemonInfo.stats.map((stat,index) => {
                     return (
                       <div className='flex flex-col flex-wrap items-center justify-center w-[80px]'>
-                        {Array.from({length: 10-Math.floor(stat.base_stat/10)}).map(()=> ( 
+                        {Array.from({length: 12.75-Math.floor(stat.base_stat/20)}).map(()=> ( 
                           <span className={`border border-slate-400 w-10 h-2 mb-1`}></span>
                         ))}
-                        {Array.from({length: Math.floor(stat.base_stat/10)}).map(()=> ( 
+                        {Array.from({length: Math.floor(stat.base_stat/20)}).map(()=> ( 
                           <span className={`bg-${statsMap[stat.stat.name]}-400 w-10 h-2 mb-1 border border-slate-400`}></span>
                         ))}
                         
                         <p className='font-bold text-2xl'>{stat.base_stat}</p>
-                        <p className='font-pixel'>{stat.stat.name}</p>
+                        <p className='font-pixel text-center'>{statNames[index]}</p>
                       </div>
                     )
                   })}
