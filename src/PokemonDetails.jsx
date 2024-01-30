@@ -71,7 +71,7 @@ const PokemonDetails = ({ }) => {
     <>
       <Link to={`/`}>
         <div className='flex flex-row items-center justify-center pt-4 pb-4 bg-slate-700'>
-          <img className='w-16 h-16 ' src="/public/pokeball.png" alt="" />
+          <img className='w-16 h-16 ' src="/pokeball.png" alt="" />
           <p className='ml-4 font-pixel text-[40px] text-white'>Pocketdex</p>
         </div>
       </Link>
@@ -140,7 +140,7 @@ const PokemonDetails = ({ }) => {
                         <div className='flex flex-wrap items-center justify-center'>
                           {type.damage_relations.double_damage_from.map((doubleDamageType) => {
                             return (
-                              <img key={doubleDamageType.name} className='typeImage' src={`/public/${doubleDamageType.name}.png`} alt=""></img>
+                              <img key={doubleDamageType.name} className='typeImage' src={`/${doubleDamageType.name}.png`} alt=""></img>
                             )
                           })}
                         </div>
@@ -155,7 +155,7 @@ const PokemonDetails = ({ }) => {
                         <div className='flex flex-wrap items-center justify-center'>
                           {type.damage_relations.double_damage_to.map((doubleDamageType) => {
                             return (
-                              <img key={doubleDamageType.name} className='typeImage' src={`/public/${doubleDamageType.name}.png`} alt=""></img>
+                              <img key={doubleDamageType.name} className='typeImage' src={`/${doubleDamageType.name}.png`} alt=""></img>
                             )
                           })}
                         </div>
@@ -170,7 +170,7 @@ const PokemonDetails = ({ }) => {
                         <div className='flex flex-wrap items-center justify-center'>
                           {type.damage_relations.half_damage_from.map((doubleDamageType) => {
                             return (
-                              <img key={doubleDamageType.name} className='typeImage' src={`/public/${doubleDamageType.name}.png`} alt=""></img>
+                              <img key={doubleDamageType.name} className='typeImage' src={`/${doubleDamageType.name}.png`} alt=""></img>
                             )
                           })}
                         </div>
@@ -185,7 +185,7 @@ const PokemonDetails = ({ }) => {
                         <div className='flex flex-wrap items-center justify-center'>
                           {type.damage_relations.half_damage_to.map((doubleDamageType) => {
                             return (
-                              <img key={doubleDamageType.name} className='typeImage' src={`/public/${doubleDamageType.name}.png`} alt=""></img>
+                              <img key={doubleDamageType.name} className='typeImage' src={`/${doubleDamageType.name}.png`} alt=""></img>
                             )
                           })}
                         </div>
@@ -200,7 +200,7 @@ const PokemonDetails = ({ }) => {
                         <div className='flex flex-wrap items-center justify-center'>
                           {type.damage_relations.no_damage_from.map((doubleDamageType) => {
                             return (
-                              <img key={doubleDamageType.name} className='typeImage' src={`/public/${doubleDamageType.name}.png`} alt=""></img>
+                              <img key={doubleDamageType.name} className='typeImage' src={`/${doubleDamageType.name}.png`} alt=""></img>
                             )
                           })}
                         </div>
@@ -215,7 +215,7 @@ const PokemonDetails = ({ }) => {
                         <div className='flex flex-wrap items-center justify-center'>
                           {type.damage_relations.no_damage_to.map((doubleDamageType) => {
                             return (
-                              <img key={doubleDamageType.name} className='typeImage' src={`/public/${doubleDamageType.name}.png`} alt=""></img>
+                              <img key={doubleDamageType.name} className='typeImage' src={`/${doubleDamageType.name}.png`} alt=""></img>
                             )
                           })}
                         </div>
