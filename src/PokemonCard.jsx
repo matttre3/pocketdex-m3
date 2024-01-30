@@ -36,7 +36,7 @@ const PokemonCard = ({pokeData}) => {
       {
         pokeData.types.map((item) => {
           return(
-            <img key={item.type.name} className='w-[45px]'src={`./src/assets/${item.type.name}.png`} alt=""></img>
+            <img key={item.type.name} className='w-[45px]'src={`./public/assets/${item.type.name}.png`} alt=""></img>
           )     
         }
         )

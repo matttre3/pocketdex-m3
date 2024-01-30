@@ -19,13 +19,13 @@ const Home = ({ pokeData }) => {
   return (
 
     <div className='flex flex-col items-center justify-center' >
-      <header className='bg-slate-700 w-full flex flex-col'>
-        <div className=' mt-4 flex flex-row items-center justify-center bg-slate-700'>
-          <img className=' w-16 h-16' src="./src/assets/pokeball.png" alt="" />
+      <header className='flex flex-col w-full bg-slate-700'>
+        <div className='flex flex-row items-center justify-center mt-4  bg-slate-700'>
+          <img className='w-16 h-16 ' src="./public/assets/pokeball.png" alt="" />
           <p className='ml-4 font-pixel text-[40px] text-white'>Pocketdex</p>
         </div>
         <input className='w-[300px] mx-auto border-2 border-gray-300 rounded-md mt-4 pl-2 pr-8 focus:outline-none focus:border-gray-500' onChange={handleChange} type="text" name="" id="" />
-        <div className='flex flex-wrap mt-6 gap-3  items-center justify-center'>
+        <div className='flex flex-wrap items-center justify-center gap-3 mt-6'>
           {types.map((item) => {
 
             const includes = pokemonType.includes(item)
@@ -43,7 +43,7 @@ const Home = ({ pokeData }) => {
           )}
         </div>
 
-        <div className='flex flex-wrap mt-6 mb-4  gap-3  items-center justify-center'>
+        <div className='flex flex-wrap items-center justify-center gap-3 mt-6 mb-4'>
           {pokemonType.map(item => {
             return (
               <>
