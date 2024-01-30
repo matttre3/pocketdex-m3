@@ -28,7 +28,7 @@ const [isPresentClass,setIsPresentClass] = useState('')
     return (
     <div className={`flex justify-center items-center ${includes&& 'hover:animate-bounce'}`}>
     <span className='before:'></span>
-    <img onClick={setType} className={`w-[45px]${isPresentClass && 'border-4 border-solid border-indigo-500'}`} src={`./public/assets/${type}.png`} alt=""></img>
+    <img onClick={setType} className={`w-[45px]${isPresentClass && 'border-4 border-solid border-indigo-500'}`} src={`./public/${type}.png`} alt=""></img>
     {includes && <svg onClick={setType} className="text-white w-[15px]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
               </svg>}

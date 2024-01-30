@@ -20,8 +20,8 @@ const Home = ({ pokeData }) => {
 
     <div className='flex flex-col items-center justify-center' >
       <header className='flex flex-col w-full bg-slate-700'>
-        <div className='flex flex-row items-center justify-center mt-4  bg-slate-700'>
-          <img className='w-16 h-16 ' src="./public/assets/pokeball.png" alt="" />
+        <div className='flex flex-row items-center justify-center mt-4 bg-slate-700'>
+          <img className='w-16 h-16 ' src="./public/pokeball.png" alt="" />
           <p className='ml-4 font-pixel text-[40px] text-white'>Pocketdex</p>
         </div>
         <input className='w-[300px] mx-auto border-2 border-gray-300 rounded-md mt-4 pl-2 pr-8 focus:outline-none focus:border-gray-500' onChange={handleChange} type="text" name="" id="" />
