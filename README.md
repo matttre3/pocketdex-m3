@@ -1,4 +1,7 @@
-<h2>Project Description 🚀</h2>
+<h2>Project Description 🚀 </h2> 
+
+➡️<a href="https://pocketdex-matteo-romano.vercel.app/">Check live web app here!</a>⬅️
+
 Welcome to my Pokedex React App! This project is a React application that leverages the PokeAPI to showcase the first-generation Pokémon. It's designed for easy exploration, allowing users to filter by type, search, and view detailed information for each Pokémon.
 
 ![github-screen-1](https://github.com/matttre3/pocketdex-m3/assets/140153086/16549400-6cda-443d-887c-867bd50f8f1a)
