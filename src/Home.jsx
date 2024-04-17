@@ -66,7 +66,7 @@ const Home = ({ pokeData }) => {
           pokeData.filter((pokemon) => {
             const types = pokemon.types.map(item => item.type.name)
             const isPresent = types.map((type) => pokemonType.includes(type))
-            const hasTrue = isPresent.every(element => element === true)
+            const hasTrue = isPresent.some(element => element === true)
             return (pokemonType.length === 0 || hasTrue)
           }).filter((pokemon) => { return (pokemon.name.toLowerCase().startsWith(searchBar.toLowerCase())) }).map((pokemon) => {
 
